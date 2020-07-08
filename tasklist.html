@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task List</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+        li {border:1px solid rgb(148, 146, 146);
+            width:250px;
+            height:25px;
+            list-style-type: none;
+            margin-bottom: 5px;
+           }
+        input, li{ border-radius: 5px;}
+       
+        </style>
+    </head>
+    <body>
+        <h2>Today Task:</h2>
+        <label>Task Name:</label>
+        <input type="text" id="txt" placeholder="Name">
+        <button type="button" value="Add" onclick="btnClick()">Add</button>
+        <br><br>
+        <h3>Task List:</h3> 
+        <ul id="task">
+            
+        </ul>
+        <script>
+           
+            function btnClick(){
+            var arr=[];
+            var name=document.getElementById("txt").value;
+            arr.push(name);
+            arr.forEach(function(j,k){
+            $("#task").append('<li>'+j+'<button type="button" id="bt" onclick="btnDelete('+k+',this)" style="float:right;"><img src="delete.png" width="16px" height="16px">'+'</li>')
+            });
+            }
+            function btnDelete(amt,e){
+                $(e).parent().remove();
+            }
+        </script>
+      </body>
+</html>
